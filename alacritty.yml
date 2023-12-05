@@ -1,25 +1,23 @@
+# 
 env:
   TERM: xterm-256color
 
 shell:
-  program: /usr/bin/tmux
-  args: 
-    - new-session
-    - -A
-    - -D
-    - -s
-    - default
-  #args: - -l - -c - "tmux attach-session -t 'defauit' || tmux new -s 'default'"
-
-  #program: /usr/bin/tmux attach-session -t 'defauit' || tmux new -s 'default'
-  #args:
-  #  - -l
-  #  - -c
-  #  - "tmux attach-session -t 'defauit' || tmux new -s 'default'"
-    #- "tmux attach || tmux"
+  program: /usr/bin/fish
+  args:
+  - -l
+  - -c
+  - "tmux new -A -s default"
 
 window:
   title: Alacritty
+
+  startup_mode: Maximized
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #decorations: Full
 
   class:
     instance: Alacritty
@@ -34,6 +32,9 @@ window:
 scrolling:
   history: 5000
 
+selection:
+  save_to_clipboard: true
+
 font:
   normal:
     family: Source Code Pro
@@ -47,7 +48,7 @@ font:
   bold_italic:
     family: Source Code Pro
     style: Bold Italic
-  size: 15.0
+  size: 13.0
   offset:
     x: 0
     y: 1
